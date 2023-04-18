@@ -1,0 +1,91 @@
+@import "../../shared/styles/variables";
+.order-history {
+  width: 100%;
+  padding: 10px;
+  table {
+    width: 55vw;
+    margin-left: 100px;
+    thead {
+      border-bottom: 3px solid $primary;
+    }
+    tbody {
+      border-bottom: 3px solid $primary;
+      tr {
+        border-bottom: 1px solid silver;
+      }
+      button {
+        height: 30px;
+        border-radius: 5px;
+        background-color: green;
+      }
+    }
+    tr {
+      height: 56px;
+      th {
+        vertical-align: middle;
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            display: block;
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+          }
+
+          padding-left: 20px;
+          position: relative;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+///////////////////////////
+@media screen and (max-width: 1300px) {
+  .order-history {
+    width: 100%;
+    table {
+      width: 57vw;
+      margin-left: 30px;
+    }
+  }
+}
+
+///////////////////////////
+@media screen and (max-width: 1050px) {
+  .order-history {
+    width: 100%;
+    table {
+      width: calc(100vw - 200px);
+      margin-left: 0px;
+      thead {
+        font-size: 14px;
+      }
+      tbody {
+        font-size: 10px;
+      }
+      tr {
+        min-height: 50px;
+        th {
+          div {
+            padding-left: 0px;
+            span {
+              width: 7px;
+              height: 7px;
+              margin-right: 3px;
+              outline: 1px solid green;
+            }
+          }
+        }
+      }
+    }
+  }
+  .display-phone {
+    display: none;
+  }
+}

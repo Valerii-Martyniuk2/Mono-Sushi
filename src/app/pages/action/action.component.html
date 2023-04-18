@@ -1,0 +1,25 @@
+<div class="spacerMT" style="height: 120px"></div>
+<div class="centerInfo">
+  <span class="centerInfoTitle">Actions</span>
+</div>
+<div class="allActions">
+  <div class="boxAction" *ngFor="let action of allActions">
+    <img
+      [routerLink]="['/offer/' + action.id]"
+      class="actionimg"
+      [src]="action.imagePath"
+      alt="action"
+    />
+    <h5 class="actionTitle">{{ action.name }}</h5>
+    <div class="hrAction"></div>
+    <div>
+      <button
+        [routerLink]="['/offer/' + action.id]"
+        class="actionBtn"
+        type="button"
+      >
+        <b>More details</b>
+      </button>
+    </div>
+  </div>
+</div>

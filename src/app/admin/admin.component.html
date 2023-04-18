@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="admin-nav">
+    <button
+      [routerLink]="['actions']"
+      routerLinkActive="active-admin"
+      class="btn-adminCategorys"
+      type="button"
+    >
+      <b>Actions</b>
+    </button>
+    <button
+      [routerLink]="['category']"
+      routerLinkActive="active-admin"
+      class="btn-adminCategorys"
+      type="button"
+    >
+      <b>Categories</b>
+    </button>
+    <button
+      [routerLink]="['products']"
+      routerLinkActive="active-admin"
+      class="btn-adminCategorys"
+      type="button"
+    >
+      <b>Products</b>
+    </button>
+    <button
+      [routerLink]="['orders']"
+      routerLinkActive="active-admin"
+      class="btn-adminCategorys"
+      type="button"
+    >
+      <b>Orders</b>
+    </button>
+    <div class="adminExit">
+      <button [routerLink]="['']" class="btn-adminExit" type="button">
+        <b>Exit</b>
+      </button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

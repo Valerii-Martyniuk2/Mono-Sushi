@@ -1,0 +1,91 @@
+@import "../../shared/styles/variables";
+table {
+  width: 800px;
+  margin-left: 50px;
+  td {
+    padding: 10px 15px;
+    text-align: center;
+  }
+  tbody {
+    img {
+      width: 70px;
+      height: 40px;
+    }
+    tr {
+      border-top: 1px solid #000;
+      td {
+        align-items: center;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+  }
+  button {
+    margin-bottom: 5px;
+  }
+}
+
+input {
+  width: 100%;
+  height: 100%;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+
+  resize: none;
+}
+.products-container {
+  width: 100%;
+  button {
+    border-radius: 10px;
+    font-size: 14px;
+  }
+}
+.textAction {
+  margin-left: 50px;
+  margin-bottom: 50px;
+  width: 200px;
+  height: 70px;
+}
+.mainAddActions2 {
+  margin-left: 50px;
+  width: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.newInfo {
+  width: 350px;
+  height: 30px;
+  margin: 20px 0;
+}
+.newInfoSmall {
+  width: 200px;
+  height: 30px;
+}
+.newDescription2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 750px;
+  height: 200px;
+}
+.b-warn {
+  background-color: orange;
+}
+.b-dang {
+  background-color: #df5a5a;
+  margin-right: 5px;
+}
+.add-product-btn {
+  height: 35px;
+  width: 120px;
+  background-color: $primary;
+}
+.delete-img-btn {
+  height: 35px;
+  width: 120px;
+  background-color: #df5a5a;
+}

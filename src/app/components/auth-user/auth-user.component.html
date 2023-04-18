@@ -1,0 +1,113 @@
+<div class="loginContainer">
+  <div class="btnExit">
+    <span (click)="closeComponent()"><b>Exit</b></span>
+  </div>
+
+  <p>
+    <b>{{ isAccount ? "Log in" : "Create account" }}</b>
+  </p>
+  <ng-container *ngIf="isAccount">
+    <form [formGroup]="loginForm">
+      <div class="input-form">
+        <input (input)="checkEmail2()" class="inp" type="text" id="email1" formControlName="email" />
+        <label class="label" for="email1">email</label>
+      </div>
+      <div class="input-form">
+        <input
+          class="inp"
+          type="password"
+          id="password1"
+          formControlName="password"
+        />
+        <label class="label" for="password1">password</label>
+      </div>
+      <mat-error style="color: gray" class="mt-error" *ngIf="checkVisibiliryError2('password','mes')" >the password must have more than five characters and must contain letters and numbers</mat-error>
+      <mat-error class="mt-error" *ngIf="invalidData" >{{invalidData}}</mat-error>
+      <mat-error class="mt-error" *ngIf="checkVisibiliryError2('email','emError')" >Email example 'sushi@gmail.com'</mat-error>
+    </form></ng-container
+  >
+
+  <ng-container *ngIf="!isAccount">
+    <form [formGroup]="createForm">
+      <div class="create-user-div">
+        <div class="input-form-short">
+          <input
+            class="inp"
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+          />
+          <label class="label" for="firstName">first name</label>
+        </div>
+        <div class="input-form-short">
+          <input
+            class="inp"
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+          />
+          <label class="label" for="lastName">second name</label>
+        </div>
+
+        <div class="input-form">
+          <input (input)="checkEmail()" class="inp" type="text" id="email" formControlName="email" />
+          <label class="label" for="email">email</label>
+        </div>
+
+        <div class="input-form">
+          <input
+            class="inp"
+            type="text"
+            id="phoneNumber"
+            formControlName="phoneNumber"
+          />
+          <label class="label" for="phoneNumber">phone number</label>
+        </div>
+
+        <div class="input-form-short">
+          <input
+            class="inp"
+            type="password"
+            id="password"
+            formControlName="password"
+            (input)="checkConfirmedPassword()"
+          />
+          <label class="label" for="password">password</label>
+        </div>
+        <div class="input-form-short">
+          <input
+            class="inp"
+            type="password"
+            id="passwordCheck"
+            formControlName="passwordCheck"
+            (input)="checkConfirmedPassword()"
+          />
+          <label class="label" for="passwordCheck">password cover</label>
+        </div>
+
+      </div>
+      <mat-error class="mt-error" *ngIf="checkVisibiliryError('passwordCheck','matchError')" > Confirmed password is required</mat-error>
+      <mat-error class="mt-error" *ngIf="checkVisibiliryError('passwordCheck','mes')" >the password must have more than five characters and must contain letters and numbers</mat-error>
+      <mat-error class="mt-error" *ngIf="checkVisibiliryError('email','emError')" >Email example 'sushi@gmail.com'</mat-error>
+    </form>
+  </ng-container>
+  <button
+    *ngIf="isAccount"
+    type="button"
+    (click)="login()"
+    [disabled]="loginForm.invalid"
+  >
+    <b>Log In</b>
+  </button>
+  <button
+    *ngIf="!isAccount"
+    type="button"
+    (click)="create()"
+    [disabled]="createForm.invalid"
+  >
+    <b>Create</b>
+  </button>
+  <h4 (click)="isAccount = !isAccount">
+    {{ isAccount ? "Dont Have an account?" : "Have an account?" }}
+  </h4>
+</div>

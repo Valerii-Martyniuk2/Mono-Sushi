@@ -1,0 +1,86 @@
+@import "../../shared/styles/variables";
+table {
+  width: 800px;
+  margin-left: 50px;
+  td {
+    padding: 10px 15px;
+    text-align: center;
+  }
+  tbody {
+    img {
+      width: 100px;
+      height: 50px;
+    }
+    tr {
+      border-top: 1px solid #000;
+      td {
+        align-items: center;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+  }
+  button {
+    margin-bottom: 5px;
+  }
+}
+
+input {
+  width: 100%;
+  height: 100%;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+
+  resize: none;
+}
+.actions-container {
+  width: 100%;
+  button {
+    border-radius: 10px;
+    font-size: 14px;
+  }
+}
+.textAction {
+  margin-left: 50px;
+  margin-bottom: 50px;
+  width: 200px;
+  height: 70px;
+}
+.mainAddActions {
+  margin-left: 50px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.newName,
+.newTitle,
+.newFile {
+  width: 350px;
+  height: 30px;
+}
+.newDescription {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 800px;
+  height: 200px;
+}
+.b-warn {
+  background-color: orange;
+}
+.b-dang {
+  background-color: #df5a5a;
+}
+.add-product-btn {
+  height: 35px;
+  width: 120px;
+  background-color: $primary;
+}
+.delete-img-btn {
+  height: 35px;
+  width: 120px;
+  background-color: #df5a5a;
+}

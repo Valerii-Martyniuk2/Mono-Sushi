@@ -1,0 +1,46 @@
+@import "../shared/styles/mixins";
+@import "../shared/styles/variables";
+// @include dAndaAndj(flex, center, center);
+
+button {
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background-color: transparent;
+  transition-property: font-size;
+  transition-duration: 0.3s;
+}
+button:hover {
+  font-size: 16px;
+}
+.container {
+  width: 95%;
+  margin: 120px auto;
+  display: flex;
+}
+///////// adminButtons /////////////////
+.admin-nav {
+  width: 250px;
+  height: 550px;
+  @include dAndaAndj(flex, center, center);
+  flex-wrap: wrap;
+}
+.btn-adminCategorys {
+  @include wAndH(100%, 100px);
+  border: 1px solid silver;
+}
+.adminExit {
+  @include wAndH(100%, 100px);
+  @include dAndaAndj(flex, center, center);
+}
+.btn-adminExit {
+  @include wAndH(100px, 70px);
+  border-radius: 10px;
+  background-color: $primary;
+  border: none;
+}
+.active-admin {
+  border: none;
+  border-top: 5px solid $primary;
+  background-color: #fff;
+}

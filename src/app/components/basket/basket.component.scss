@@ -1,0 +1,317 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+
+.null-info-basket {
+  justify-content: center;
+  text-align: center;
+  h3 {
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    margin-bottom: 20px;
+
+    span {
+      width: 100%;
+      font-size: 20px;
+      color: $primary;
+      cursor: pointer;
+    }
+  }
+  h4 {
+    span:hover {
+      color: #4d92c0;
+    }
+  }
+  img {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.basketData {
+  padding: 110px 0 0 0;
+  z-index: 20;
+  width: 100%;
+}
+.basketInfo {
+  width: 664px;
+  border-top: 1px solid rgba(128, 128, 128, 0.486);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #fff;
+}
+.basketProducts {
+  width: 100%;
+}
+.basketCard-count {
+  border: 1px solid rgba(128, 128, 128, 0.486);
+  border-radius: 5px;
+}
+.productOrdered {
+  @include dAndaAndj(flex, space-between, center);
+  height: 110px;
+  padding: 0 20px;
+  border-top: 1px solid rgba(128, 128, 128, 0.486);
+  .trashBasket-btn {
+    height: 75px;
+    background-color: transparent;
+  }
+  div {
+    @include dAndaAndj(flex, space-between, center);
+  }
+  img {
+    max-height: 80px;
+  }
+  button {
+    height: 25px;
+  }
+  span {
+    width: 45px;
+    text-align: center;
+    margin: 0 5px;
+  }
+}
+
+.basketInfo-btn {
+  width: 30px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.basketOrder {
+  width: 100%;
+  @include dAndaAndj(flex, space-between, center);
+  background-color: $primary;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 65px;
+  span {
+    margin-left: 20px;
+    font-size: 22px;
+  }
+  button {
+    margin-right: 20px;
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 20px;
+  }
+}
+
+.basket-order-address {
+  border-top: 1px solid silver;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 10px;
+  position: relative;
+  label {
+    // width: 100%;
+    position: absolute;
+    background-color: #fff;
+    color: silver;
+    top: 10px;
+  }
+  span {
+    position: absolute;
+    font-size: 15px;
+    top: 30px;
+    left: 20px;
+  }
+  input {
+    width: 70%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    font-size: 15px;
+    padding-left: 70px;
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid $primary;
+  }
+}
+
+/////////////CAN////////////
+.productOrdered {
+  .can {
+    display: flex;
+    justify-content: center;
+    width: 25px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    .can-head {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+      transition-duration: 0.3s;
+      .Can-h-1 {
+        @include wAndH(11px, 5px);
+        border: 1px solid rgb(163, 163, 163);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transition-duration: 0.3s;
+      }
+      .Can-h-2 {
+        @include wAndH(25px, 10px);
+        border: 1px solid rgb(163, 163, 163);
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+        transition-duration: 0.3s;
+      }
+    }
+    .can-body {
+      @include dAndaAndj(flex, space-around, center);
+      @include wAndH(25px, 35px);
+      border: 1px solid rgb(163, 163, 163);
+      border-bottom-left-radius: 20%;
+      border-bottom-right-radius: 20%;
+      transition-duration: 0.3s;
+      .Can-b-1 {
+        @include wAndH(1px, 20px);
+        background-color: rgb(163, 163, 163);
+        transition-duration: 0.3s;
+      }
+    }
+  }
+}
+.productOrdered button :hover {
+  .can-head {
+    margin-bottom: 6px;
+    transform: rotate(25deg);
+
+    .Can-h-1 {
+      border-color: $primary;
+    }
+    .Can-h-2 {
+      border-color: $primary;
+    }
+  }
+  .can-body {
+    border-color: $primary;
+    .Can-b-1 {
+      background-color: $primary;
+    }
+  }
+}
+
+//////////////////////////--------------
+@media screen and (max-width: 750px) {
+  .basketData {
+    padding: 10px 0;
+    margin: 40px 0;
+  }
+  .null-info-basket {
+    width: 100vw;
+    h3 {
+      font-size: 16px;
+    }
+    h4 {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .basketInfo {
+    padding-top: 30px;
+    width: 100%;
+  }
+  .basketProducts {
+    width: 100%;
+  }
+  ////////////
+  .productOrdered {
+    @include dAndaAndj(flex, space-around, center);
+    flex-wrap: wrap;
+    min-height: 230px;
+    padding: 0 10px;
+    .trashBasket-btn {
+      height: 75px;
+      background-color: transparent;
+    }
+    div {
+      @include dAndaAndj(flex, space-between, center);
+    }
+    img {
+      max-height: 80px;
+    }
+    button {
+      height: 25px;
+    }
+    span {
+      width: 45px;
+      text-align: center;
+      margin: 0 10px;
+    }
+    h3 {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  .basketInfo-btn {
+    width: 30px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  .basketOrder {
+    @include dAndaAndj(flex, space-between, center);
+    background-color: $primary;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    span {
+      margin-left: 5px;
+      font-size: 16px;
+    }
+    button {
+      max-width: 170px;
+      margin-right: 5px;
+      padding: 0 5px;
+      font-size: 16px;
+    }
+  }
+
+  .basket-order-address {
+    border-top: 1px solid silver;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+    position: relative;
+    label {
+      position: absolute;
+      background-color: #fff;
+      color: silver;
+      top: 10px;
+    }
+    span {
+      position: absolute;
+      font-size: 15px;
+      top: 30px;
+      left: 20px;
+    }
+    input {
+      width: 70%;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid silver;
+      font-size: 15px;
+      padding-left: 70px;
+    }
+    input:focus {
+      outline: none;
+      border: 2px solid $primary;
+    }
+  }
+}

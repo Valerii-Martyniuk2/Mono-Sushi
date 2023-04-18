@@ -1,0 +1,95 @@
+<div class="actions-container">
+  <button
+    (click)="textAction = !textAction"
+    class="textAction"
+    type="button"
+    [textContent]="textAction ? 'Add Action' : 'Look Actions'"
+  ></button>
+  <ng-container *ngIf="textAction">
+    <form>
+      <table>
+        <thead>
+          <tr>
+            <td><b>Date</b></td>
+            <td><b>Name</b></td>
+            <td><b>Title</b></td>
+            <td><b>Description</b></td>
+            <td><b>Image</b></td>
+            <td><b>Actions</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let action of adminActions">
+            <td>{{ action.date | date }}</td>
+            <td>{{ action.name }}</td>
+            <td>{{ action.title }}</td>
+            <td>{{ action.description | slice : 0 : 30 }}</td>
+            <td><img [src]="action.imagePath" /></td>
+            <td>
+              <button
+                type="button"
+                (click)="deleteAction(action)"
+                class="b-dang"
+              >
+                Delete
+              </button>
+              <button type="button" (click)="editAction(action)" class="b-warn">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </ng-container>
+  <ng-container *ngIf="!textAction">
+    <div>
+      <form
+        [formGroup]="actionsForm"
+        (ngSubmit)="addAction()"
+        class="mainAddActions"
+      >
+        <div class="newName">
+          <input
+            formControlName="name"
+            type="text"
+            placeholder="Name of action..."
+          />
+        </div>
+        <div class="newTitle">
+          <input
+            formControlName="title"
+            type="text"
+            placeholder="write title here..."
+          />
+        </div>
+        <div class="newDescription">
+          <textarea
+            formControlName="description"
+            placeholder="write description here..."
+          ></textarea>
+        </div>
+        <div *ngIf="!isUploaded">
+          <div class="newFile">
+            <input type="file" id="formFile" (change)="upload($event)" />
+          </div>
+        </div>
+        <div *ngIf="isUploaded">
+          <img
+            width="400px "
+            height="300px"
+            [src]="valueByControl('imagePath')"
+            alt=""
+          />
+          <button class="delete-img-btn" type="button" (click)="deleteImg()">
+            deleteImg
+          </button>
+        </div>
+
+        <button class="add-product-btn" type="submit">
+          {{ editStatus ? "Save" : "Add" }}
+        </button>
+      </form>
+    </div>
+  </ng-container>
+</div>

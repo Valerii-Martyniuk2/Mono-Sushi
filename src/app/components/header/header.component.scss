@@ -1,0 +1,516 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+@import "../../shared/styles/header-menu";
+.height10 {
+  height: 10px !important;
+}
+.zind {
+  z-index: 555;
+}
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+b {
+  font-weight: bold;
+}
+
+.rr {
+  display: flex;
+}
+.header {
+  @include wAndH(100%, 110px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+}
+.logo {
+  @include wAndH(217px, 100%);
+  @include dAndaAndj(flex, center, center);
+  background-color: $primary;
+  cursor: pointer;
+}
+.logo-img {
+  @include wAndH(173px, 65px);
+}
+
+.main-menu {
+  @include dAndaAndj(flex, center, center);
+  height: 100%;
+  margin-left: 5px;
+  background-color: #fff;
+}
+.menu-bar {
+  position: relative;
+  @include wAndH(95px, 81px);
+  @include dAndaAndj(flex, center, center);
+  flex-wrap: wrap;
+  font-weight: bold;
+  font-size: 16px;
+  outline: 2px solid transparent;
+  border-radius: 10px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.menu-bar-items {
+  padding-top: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid $primary;
+  border-radius: 10px;
+  z-index: 30;
+  width: 200px;
+  background-color: #fff;
+  .aclickk {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+//////////////////////////////////////////////
+.type-menu {
+  @include wAndH(95px, 81px);
+  @include dAndaAndj(flex, center, center);
+  flex-wrap: wrap;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin-right: 3px;
+
+  border-radius: 10px;
+
+  animation-duration: 2s;
+  animation-name: slide;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-play-state: running;
+  animation-timing-function: linear;
+  span {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+//////////////////////////////////////////////
+.main-menu-img {
+  @include wAndH(30px, 30px);
+}
+.contacts {
+  @include dAndaAndj(flex, space-between, center);
+  max-width: 600px;
+  width: 100%;
+  font-size: 14px;
+}
+.contacts-menu {
+  @include dAndaAndj(flex, center, center);
+  height: 46px;
+  position: relative;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  z-index: 1;
+}
+.contacts-menu2 {
+  @include dAndaAndj(flex, center, center);
+  height: 46px;
+  position: relative;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  z-index: 1;
+}
+.contacts-phone {
+  @include wAndH(202px, 46px);
+  @include dAndaAndj(flex, center, center);
+  background-color: $primary;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition-duration: 0.3s;
+}
+.contacts-img-phone {
+  @include wAndH(12px, 20px);
+  margin-right: 30px;
+}
+.contacts-user {
+  position: relative;
+  height: 81px;
+  @include dAndaAndj(flex, center, center);
+}
+.contacts-user2 {
+  display: none;
+}
+.number-info {
+  @include wAndH(169px, 46px);
+  @include dAndaAndj(flex, center, center);
+  flex-wrap: wrap;
+  text-align: center;
+  a {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+.contacts-img-user {
+  @include wAndH(30px, 40px);
+}
+
+.basket {
+  @include dAndaAndj(flex, center, center);
+  width: 159px;
+  cursor: pointer;
+  .bs-span {
+    z-index: 20;
+  }
+  img {
+    z-index: 20;
+    @include wAndH(38px, 38px);
+    margin-right: 15px;
+  }
+}
+.basket-background {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 159px;
+  height: 110px;
+  background-color: $primary;
+  z-index: 10;
+  transition-duration: 1s;
+}
+.basket-span {
+  @include wAndH(26px, 26px);
+  @include dAndaAndj(flex, center, center);
+  position: absolute;
+  top: 30px;
+  right: 74px;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index: 20;
+}
+
+.infoUserTop {
+  text-align: center;
+  position: fixed;
+  top: 110px;
+  right: 0;
+  background-color: bisque;
+}
+
+////////////////PHONE MENU RIGHT //////////////////
+.phone-menu-right {
+  z-index: 10;
+  // overflow: hidden;
+  white-space: nowrap;
+  height: calc(100vh - 120px);
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  transition-duration: 0.5s;
+  h3 {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  button {
+    font-family: "RotondaC";
+    border: none;
+    background-color: $primary;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .swipe {
+    z-index: 50000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    background-color: $primary;
+    position: absolute;
+    left: -70px;
+    top: 70px;
+    transform: rotate(90deg);
+    span {
+      margin: 0 2px 2px;
+      width: 25px;
+      height: 25px;
+      display: block;
+      background-image: url("../../../assets/pngwing.png");
+      background-size: 25px 25px;
+      background-position: center;
+      transform: rotate(-90deg);
+      transition-duration: 0.5s;
+    }
+  }
+}
+.backColor {
+  z-index: 10;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-color: rgba(0, 0, 0, 0.325);
+}
+.transformation-dutation {
+  transition-duration: 0s !important;
+}
+.rotate-dag {
+  transform: rotate(90deg) !important;
+}
+////////HOVERS
+///
+.aclickk2:hover {
+  color: $primary;
+}
+.contacts-phone:hover {
+  background-color: transparent;
+  border: 2px solid $primary;
+}
+.text-hover:hover {
+  transition-duration: 0.3s;
+  color: $primary;
+}
+
+/////////////////////
+.bText {
+  color: $primary;
+  font-weight: bold;
+}
+.zInd {
+  z-index: 100;
+}
+.only-phone {
+  display: none;
+}
+////////
+
+//////////////////MAX WIDTH 1600//////////////////////////////////////
+///
+///
+@media screen and (max-width: 1600px) {
+  .header {
+    height: 95px;
+  }
+
+  .logo {
+    width: 166px;
+  }
+  .logo-img {
+    @include wAndH(136px, 51px);
+  }
+
+  .type-menu {
+    @include wAndH(71px, 66px);
+    font-size: 14px;
+  }
+  .main-menu-img {
+    width: 28px;
+  }
+
+  .contacts {
+    max-width: 500px;
+    width: 100%;
+    font-size: 12px;
+    margin-right: 22px;
+  }
+
+  .contacts-phone {
+    height: 36px;
+  }
+  .number-info {
+    @include wAndH(144px, 39px);
+    a {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .basket {
+    width: 134px;
+    img {
+      @include wAndH(38px, 38px);
+      margin-right: 15px;
+    }
+    span {
+      font-size: 16px;
+    }
+  }
+  .basket-background {
+    width: 134px;
+    height: 95px;
+  }
+  .basket-span {
+    @include wAndH(22px, 22px);
+    font-size: 16px;
+    top: 27px;
+    right: 63px;
+  }
+}
+
+//////////////////MAX WIDTH 1350//////////////////////////////////////
+
+@media screen and (max-width: 1350px) {
+  .contacts {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .contacts-menu {
+    justify-content: center;
+  }
+
+  .contacts-phone {
+    width: 36px;
+    span {
+      display: none;
+    }
+  }
+  .contacts-img-phone {
+    margin-right: 0;
+  }
+}
+
+/////////////////////////////////MAX WIDTX 1200/////////////////////////
+///
+@media screen and (max-width: 1200px) {
+  .header {
+    height: 60px;
+  }
+  .logo {
+    @include wAndH(136px, 100%);
+  }
+
+  .logo-img {
+    @include wAndH(106px, 40px);
+  }
+
+  .main-menu {
+    @include wAndH(100%, 60px);
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid black;
+    padding: 5px 0;
+    margin-left: 0;
+  }
+  .type-menu {
+    @include wAndH(25%, 50px);
+    font-size: 14px;
+  }
+  .display-phone {
+    display: none;
+  }
+  .main-menu-img {
+    @include wAndH(30px, 30px);
+  }
+
+  .contacts {
+    @include dAndaAndj(flex, space-around, center);
+    max-width: 1200px;
+    margin-right: 0;
+  }
+  .contacts-menu {
+    @include dAndaAndj(flex, center, center);
+    height: 50px;
+  }
+  .contacts-phone {
+    height: 48px;
+    width: auto;
+    background-color: transparent;
+  }
+  .contacts-phone:hover {
+    border: 2px solid transparent;
+  }
+  .contacts-img-phone {
+    @include wAndH(30px, 30px);
+    margin-right: 0;
+  }
+  .number-info {
+    display: none;
+  }
+  .contacts-user2 {
+    @include dAndaAndj(flex, center, center);
+  }
+  .contacts-img-user2 {
+    @include wAndH(38px, 38px);
+  }
+
+  .basket {
+    width: 134px;
+    img {
+      @include wAndH(38px, 38px);
+      margin-right: 2px;
+    }
+    .bs-span {
+      display: none;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+  .basket-background {
+    width: 92px;
+    height: 60px;
+  }
+  .basket-span {
+    @include wAndH(15px, 15px);
+    position: inherit;
+  }
+  .only-phone {
+    display: flex;
+  }
+}
+/////////////////////////////////MAX WIDTX 750/////////////////////////
+
+@media screen and (max-width: 750px) {
+  .display-none-swipe {
+    display: flex !important;
+  }
+  .logo {
+    @include wAndH(70px, 100%);
+    img {
+      display: none;
+    }
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Flogo-mobile-icon.svg?alt=media&token=eaeb0961-fd29-44aa-b7b1-4d26aeb4604e");
+    background-size: 40px, 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .contacts {
+    width: 70%;
+  }
+  .basket {
+    width: 70px;
+    justify-content: flex-end;
+    padding-right: 3px;
+    img {
+      @include wAndH(30px, 30px);
+    }
+  }
+  .basket-background {
+    width: 55px;
+    height: 60px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .contacts-menu2 {
+    padding: 0;
+  }
+}

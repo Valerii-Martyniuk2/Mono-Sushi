@@ -1,0 +1,29 @@
+<form class="order-history">
+    <table>
+        <thead>
+        <tr>
+            <th><b>Date</b></th>
+            <th><b>Address</b></th>
+            <th><b>Total</b></th>
+            <th><b>Order Status</b></th>
+            <th><b>Do/Done</b></th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let order of orders; index as i">
+        <tr>
+            <th>{{order.date | date}}</th>
+            <th>{{order.address}}</th>
+            <th>{{order.total}} $</th>
+            <th>
+                <div *ngIf="order.info === 'processed' " style="color: orange"><span style="background-color: orange;outline: 2px solid orange;"></span>{{order.info}}</div>
+                <div *ngIf="order.info !== 'processed' " style="color: green"><span style="background-color: green;outline: 2px solid green;" ></span>{{order.info}}</div>
+            </th>
+            <th><button *ngIf="order.info === 'processed' " (click)="markDone(order)" >Mark as Done</button></th>
+        </tr>
+        <tr *ngFor=" let product of products[i]" >
+            <th colspan="2">{{product.name}}</th>
+            <th>{{product.count}}</th>
+        </tr>
+        </tbody>
+    </table>
+</form>

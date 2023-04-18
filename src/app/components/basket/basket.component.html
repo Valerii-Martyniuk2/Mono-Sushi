@@ -1,0 +1,78 @@
+<div class="basketData">
+  <div class="basketInfo">
+    <div class="basketProducts">
+      <div *ngIf="basket.length == 0" class="null-info-basket">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2Fbasket%2FBasketIsNull.svg?alt=media&token=9d033d23-add9-4cfa-9fc3-801f8c691324"
+        />
+        <h3><b>Basket is empty</b></h3>
+        <h4>
+          <span [routerLink]="'/product/rolls'" (click)="closeDialog()"
+            ><b>Buy something</b></span
+          >
+        </h4>
+      </div>
+      <div class="productOrdered" *ngFor="let product of basket; index as i">
+        <img [src]="product.imagePath" alt="..." width="100px" />
+        <h3>
+          {{ product.name | slice : 0 : 19 }}
+          <span *ngIf="product.name.length > 19">...</span>
+        </h3>
+        <div>
+          <div class="basketCard-count">
+            <button
+              class="basketInfo-btn"
+              type="button"
+              (click)="countProduct(product, false)"
+            >
+              -
+            </button>
+            <span>{{ product.count }}</span>
+            <button
+              class="basketInfo-btn"
+              type="button"
+              (click)="countProduct(product, true)"
+            >
+              +
+            </button>
+          </div>
+          <span>{{ product.count * product.price }} $</span>
+          <button
+            class="trashBasket-btn"
+            type="button"
+            (click)="deletBasketProduct(product)"
+          >
+            <div class="can">
+              <div class="can-head">
+                <div class="Can-h-1"></div>
+                <div class="Can-h-2"></div>
+              </div>
+              <div class="can-body">
+                <div class="Can-b-1"></div>
+                <div class="Can-b-1"></div>
+                <div class="Can-b-1"></div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="basketOrder">
+      <span
+        >Bill:<b> {{ basketInfo.total }}</b> $</span
+      >
+      <button
+        *ngIf="userData.id"
+        type="button"
+        [routerLink]="['/preorder']"
+        (click)="closeDialog()"
+        [disabled]="basketInfo.total <= 0"
+      >
+        Make a order
+      </button>
+      <button *ngIf="!userData.id" type="button" (click)="openLogin()">
+        Please login to make a order
+      </button>
+    </div>
+  </div>
+</div>

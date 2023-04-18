@@ -1,0 +1,234 @@
+<div class="header">
+  <div class="rr">
+    <!-- ////LOGO -->
+    <div class="logo" [routerLink]="['']" (click)="noDialog()">
+      <img
+        class="logo-img"
+        src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Flogo.svg?alt=media&token=fb5799b4-fea6-4534-afed-5a56c7c4350b"
+        alt="logo.img"
+      />
+    </div>
+    <!-- ////Menu -->
+    <div class="main-menu">
+      <a [routerLink]="['/offer']" class="type-menu" (click)="noDialog()">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Factions.icon.svg?alt=media&token=d84caecb-17f4-44fe-bd3a-a9e914fcc69c"
+          alt="icon.menu"
+          class="main-menu-img"
+        />
+        <span>offers</span>
+      </a>
+      <a
+        *ngFor="let component of Categories"
+        [routerLink]="'/product/' + component.path"
+        class="type-menu"
+        (click)="noDialog()"
+      >
+        <img
+          [src]="component.imagePath"
+          alt="icon.menu"
+          class="main-menu-img"
+        />
+        <span>{{ component.name }}</span>
+      </a>
+      <a
+        [routerLink]="['/product/souces']"
+        class="type-menu display-phone"
+        (click)="noDialog()"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Fsouces.icon.svg?alt=media&token=945e49cf-3fb8-4a19-90fd-b78cee75e02d"
+          alt="icon.menu"
+          class="main-menu-img"
+        />
+        <span>souces</span>
+      </a>
+
+      <div class="display-phone menu-bar">
+        <div class="menu-bar-items" *ngIf="isNavItems">
+          <div class="aclickk">
+            <a
+              class="aclickk2"
+              [routerLink]="['/paiment.delivery']"
+              (click)="isNavItems = !isNavItems; rotateMenu(menuRotate)"
+            >
+              Delivery and Payment</a
+            >
+          </div>
+          <div
+            class="aclickk"
+            [routerLink]="['/about']"
+            (click)="isNavItems = !isNavItems; rotateMenu(menuRotate)"
+          >
+            <a class="aclickk2"> About</a>
+          </div>
+        </div>
+        <div
+          class="main-menu-imgUl zind"
+          (click)="isNavItems = !isNavItems; rotateMenu(menuRotate)"
+          #menuRotate
+        >
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ////Info Phone-->
+  <div class="contacts">
+    <a class="contacts-menu2">
+      <div class="contacts-phone" (click)="openCallBack()">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Fphone.icon.svg?alt=media&token=d19ae77c-bb74-4f98-b6eb-b327462af668"
+          alt="icon.menu.phone"
+          class="contacts-img-phone"
+        />
+        <span><b>we will call you</b></span>
+      </div>
+    </a>
+
+    <div class="number-info">
+      <a class="text-hover">(097) 998 88 99</a>
+      <p>we work from <b>10am</b> to <b>9pm</b></p>
+    </div>
+
+    <!--  //////////////  login item /////////////-->
+    <div *ngIf="!userData.isLogin" class="contacts-user" (click)="openLogin()">
+      <a class="type-menu" class="contacts-menu zInd">
+        <div class="">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Fuser-img.svg?alt=media&token=d8918fd8-b431-4f75-b77d-f1608b23f4d7"
+            alt="icon.menu.phone"
+            class="contacts-img-user"
+          />
+        </div>
+      </a>
+    </div>
+
+    <div
+      *ngIf="userData.isLogin"
+      class="contacts-user display-phone"
+      (click)="isUserItems = !isUserItems"
+    >
+      <div class="menu-bar-items" *ngIf="isUserItems">
+        <div class="aclickk">
+          <a class="aclickk2" [routerLink]="['/user']"><b>Personal Data</b></a>
+        </div>
+        <div class="aclickk" [routerLink]="['/user/orderhistory']">
+          <a class="aclickk2"><b>Order History</b></a>
+        </div>
+        <div class="aclickk" [routerLink]="['/user/passwordchange']">
+          <a class="aclickk2"><b>Change Password</b></a>
+        </div>
+        <div class="aclickk">
+          <a class="aclickk2" (click)="logOut(); isUserItems = !isUserItems"
+            ><b>Log Out</b></a
+          >
+        </div>
+      </div>
+      <a class="type-menu" class="contacts-menu zInd">
+        <div class="">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Fuser-img.svg?alt=media&token=d8918fd8-b431-4f75-b77d-f1608b23f4d7"
+            alt="icon.menu.phone"
+            class="contacts-img-user"
+          />
+        </div>
+        <span class="bText display-phone" [textContent]="userData.name"></span>
+      </a>
+    </div>
+    <!-- User Info Icon phone  -->
+    <div
+      *ngIf="userData.isLogin"
+      class="contacts-user only-phone"
+      [routerLink]="['/user']"
+      (click)="noDialog()"
+    >
+      <a class="type-menu" class="contacts-menu zInd">
+        <div class="">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Fuser-img.svg?alt=media&token=d8918fd8-b431-4f75-b77d-f1608b23f4d7"
+            alt="icon.menu.phone"
+            class="contacts-img-user"
+          />
+        </div>
+      </a>
+    </div>
+
+    <!--  /////////////////////////// Phone Menu sous delivery -->
+
+    <div class="contacts-user2">
+      <a class="contacts-menu2">
+        <div (click)="openMenuPhone(); rotateMenu(menuRotate2)">
+          <div class="main-menu-imgUl zind" #menuRotate2>
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- //////Basket -->
+  <div class="basket" (click)="openBasket()">
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FheaderImg%2Fbasket.icon.svg?alt=media&token=40700e68-cdc2-4713-8684-e5fa4c7e48cf"
+      alt="menu.basket"
+    />
+    <span class="basket-span">{{ basketInfo.count }}</span>
+    <span class="bs-span"
+      ><b>{{ basketInfo.total }}</b> $</span
+    >
+    <div class="basket-background" #bascetBackground></div>
+  </div>
+
+  <!-- //////////////////////////PhoneMenuRight///////////////////////////// -->
+  <div
+    (click)="openMenuPhone(); rotateMenu(menuRotate2)"
+    class="backColor"
+    [style.display]="isphoneMenuWidh ? 'block' : 'none'"
+  ></div>
+  <div class="phone-menu-right" [style.width.%]="phoneMenuWidth" #phoneMenu>
+    <div
+      class="swipe display-none-swipe"
+      (touchstart)="touchstartMy($event)"
+      (touchend)="onMouseUp($event)"
+    >
+      <b style="margin: 0 2px 0 2px">Swipe</b> <span #arrow></span>
+    </div>
+    <h3></h3>
+    <h3
+      (click)="openMenuPhone(); rotateMenu(menuRotate2)"
+      [routerLink]="['/product/souces']"
+    >
+      <b>Souces</b>
+    </h3>
+    <h3
+      (click)="openMenuPhone(); rotateMenu(menuRotate2)"
+      [routerLink]="['/paiment.delivery']"
+    >
+      <b>Delivery</b>
+    </h3>
+    <h3
+      (click)="openMenuPhone(); rotateMenu(menuRotate2)"
+      [routerLink]="['/paiment.delivery']"
+    >
+      <b>Payment</b>
+    </h3>
+    <h3
+      (click)="openMenuPhone(); rotateMenu(menuRotate2)"
+      [routerLink]="['/about']"
+    >
+      <b>About</b>
+    </h3>
+    <h3 (click)="openMenuPhone(); openCallBack(); rotateMenu(menuRotate2)">
+      <b>(097) 878 08 37</b>
+    </h3>
+    <button (click)="openMenuPhone(); openCallBack(); rotateMenu(menuRotate2)">
+      <b>Call Back</b>
+    </button>
+  </div>
+</div>

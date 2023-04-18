@@ -1,0 +1,26 @@
+<div class="loginContainer">
+  <div class="btnExit">
+    <span (click)="closeComponent()"><b>Exit</b></span>
+  </div>
+  <p>
+    <b>We will call</b>
+  </p>
+  <h3>Leave your phone number and our managers will contact you</h3>
+  <form [formGroup]="callBackForm">
+    <div class="input-form">
+      <input class="inp" type="text" id="name" formControlName="name" />
+      <label class="label" for="name">Name</label>
+    </div>
+    <div class="input-form">
+      <input class="inp" type="text" id="phone" formControlName="phone" />
+      <label class="label" for="phone">Phone</label>
+    </div>
+  </form>
+  <button
+    (click)="callBackReload()"
+    type="button"
+    [disabled]="callBackForm.invalid"
+  >
+    <b>Call back</b>
+  </button>
+</div>

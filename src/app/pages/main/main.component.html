@@ -1,0 +1,111 @@
+<div class="rolls-container">
+  <div class="slider">
+    <div class="slider-line" [style.left.px]="sliderPosition" #sliderLine>
+      <div *ngFor="let action of allActions">
+        <div
+          [ngStyle]="{ 'background-image': 'url(' + action.imagePath + ')' }"
+          class="lside-img"
+          [routerLink]="['/offer/' + action.id]"
+        ></div>
+      </div>
+    </div>
+    <div class="slider-position" *ngIf="!isCountDisplay">
+      <label
+        *ngFor="let position of countRadio; index as i"
+        (click)="myPosition(position, i)"
+      >
+        <input
+          type="radio"
+          name="slidPos"
+          class="lside-radio"
+          [checked]="radioCount == i"
+          (click)="myPosition(position, i)"
+        />
+        <span class="check-radio-face"></span>
+      </label>
+    </div>
+    <div *ngIf="isCountDisplay" class="slider-position-phone">
+      <label
+        *ngFor="let position of countRadio; index as i"
+        (click)="myPosition(position, i)"
+      >
+        <input
+          type="radio"
+          name="slidPos"
+          class="lside-radio"
+          [checked]="radioCount == i"
+          (click)="myPosition(position, i)"
+        />
+        <span class="check-radio-face"></span>
+      </label>
+    </div>
+  </div>
+  <!-- ////////SLIDER END///////// -->
+
+  <!-- ////////////INFO DELIVERY ///////////// -->
+  <div class="delivery-info">
+    <div class="delivery-section">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FPaymentDelivery%2Fmn-delivery-img.svg?alt=media&token=825918fd-39e5-4450-819f-a8e864a6cc29"
+        alt="img.delivery"
+      />
+      <button type="button" [routerLink]="['/paiment.delivery']">
+        <b>Delivery areas</b>
+      </button>
+    </div>
+    <div class="delivery-section border-center display-phone">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FaboutImg%2Fmono-supermen.svg?alt=media&token=86f334e8-1f19-479a-aab0-5137fff76510"
+        alt="img.delivery"
+      />
+      <h3>The average delivery time in the green zone is <b> 00:43:00</b></h3>
+    </div>
+    <div class="delivery-section display-phone2">
+      <img
+        class="protect-amg"
+        src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FaboutImg%2Fmono-bonus.svg?alt=media&token=d35b082e-ef8a-440d-9f3b-21b75770389e"
+        alt="img.delivery"
+      />
+      <h3>
+        Our work schedule We work from <b> 11:00 a.m.</b> to <b> 10:30 p.m</b>
+      </h3>
+    </div>
+  </div>
+  <!-- ////////////INFO DELIVERY END ///////////// -->
+
+  <div class="allProducts-box">
+    <div class="productCard" *ngFor="let product of adminProducts">
+      <div class="productCard-data">
+        <img
+          [routerLink]="['/product/' + product.category, product.id]"
+          [src]="product.imagePath"
+          alt="..."
+        />
+        <h3>
+          <b>{{ product.name }}</b>
+        </h3>
+        <div class="productCard-consist">
+          <p>{{ product.consist }}</p>
+          <span
+            ><b>{{ product.weight }}g</b></span
+          >
+        </div>
+        <div class="productCard-controls">
+          <span
+            ><b>{{ product.price }} $</b></span
+          >
+          <div class="productCard-count">
+            <button type="button" (click)="countProduct(product, false)">
+              -
+            </button>
+            <span>{{ product.count }}</span>
+            <button type="button" (click)="countProduct(product, true)">
+              +
+            </button>
+          </div>
+          <button type="button" (click)="addBasket(product)">Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
