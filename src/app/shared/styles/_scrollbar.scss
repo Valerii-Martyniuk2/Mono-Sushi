@@ -1,0 +1,18 @@
+@import "variables";
+html,
+body {
+  scrollbar-color: $primary #fff;
+  scrollbar-width: auto;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $primary;
+}

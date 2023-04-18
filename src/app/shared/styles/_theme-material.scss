@@ -1,0 +1,132 @@
+// @use "~@angular/material" as mat;
+// @use "@angular/material" as mat;
+@import "variables";
+@import "mixins";
+@import "../../../assets/RotondaC/fonts";
+
+// change default style MATERIAL
+
+// $primary-default-value: (
+//   50: #fad4b8,
+//   100: #fad4b8,
+//   200: #fad4b8,
+//   300: #ec6603,
+//   400: #ec6603,
+//   500: #ec6603,
+//   600: #ec6603,
+//   700: #f3b484,
+//   800: #f3b484,
+//   900: #f3b484,
+//   contrast: (
+//     50: white,
+//     100: white,
+//     200: white,
+//     300: white,
+//     400: white,
+//     500: white,
+//     600: white,
+//     700: white,
+//     800: white,
+//     900: white,
+//   ),
+// );
+
+// $warn-default-value: (
+//   50: #eb5757,
+//   100: #eb5757,
+//   200: #eb5757,
+//   300: #eb5757,
+//   400: #eb5757,
+//   500: #eb5757,
+//   600: #eb5757,
+//   700: #eb5757,
+//   800: #eb5757,
+//   900: #eb5757,
+//   contrast: (
+//     50: white,
+//     100: white,
+//     200: white,
+//     300: white,
+//     400: white,
+//     500: white,
+//     600: white,
+//     700: white,
+//     800: white,
+//     900: white,
+//   ),
+// );
+
+// @include mat.core();
+// $custom-theme-primary: mat.define-palette(
+//   $primary-default-value,
+//   500,
+//   100,
+//   700
+// );
+// $custom-theme-accent: mat.define-palette(mat.$brown-palette, A200, A100, A400);
+// $custom-theme-warn: mat.define-palette($warn-default-value);
+// $custom-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $custom-theme-primary,
+//       accent: $custom-theme-accent,
+//       warn: $custom-theme-warn,
+//     ),
+//   )
+// );
+// @include mat.all-component-themes($custom-theme);
+
+.dialog-back {
+  background-color: rgba(0, 0, 0, 0.701);
+}
+
+.auth-dialog {
+  width: 540px;
+  min-height: 380px;
+}
+
+.dialog-backBasket {
+  background-color: rgba(0, 0, 0, 0.701);
+}
+.auth-dialogBasket {
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  // width: 100%;
+  min-height: 250px;
+  overflow: scroll;
+  input:focus {
+    outline: none;
+  }
+}
+.auth-dialogBasket::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.cdk-overlay-pane {
+  // max-width: 100vw !important;
+  position: absolute !important;
+}
+
+@media screen and (max-width: 1050px) {
+  .auth-dialog {
+    width: 90vw;
+    min-height: 250px;
+    input:focus {
+      outline: none;
+    }
+  }
+  .cdk-overlay-pane {
+    max-width: 100vw !important;
+  }
+}
+@media screen and (max-width: 750px) {
+  .dialog-backBasket {
+    background-color: none;
+  }
+  .cdk-overlay-pane {
+    max-width: 100vw !important;
+  }
+}
