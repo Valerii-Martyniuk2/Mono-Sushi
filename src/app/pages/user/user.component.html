@@ -1,0 +1,14 @@
+<div class="profile-container">
+  <div class="profile-type">
+    <button [routerLink]="['personaldata']" routerLinkActive="active-user">
+      Personal data
+    </button>
+    <button [routerLink]="['orderhistory']" routerLinkActive="active-user">
+      Order history
+    </button>
+    <button [routerLink]="['passwordchange']" routerLinkActive="active-user">
+      Password change
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

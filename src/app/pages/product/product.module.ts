@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductRoutingModule } from './product-routing.module';
+import { SharedModule } from '../../shared/shared.module';
+import { ProductComponent } from './product.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
+import { UpperPipe } from '../../shared/pipes/upper.pipe';
+
+
+
+@NgModule({
+  declarations: [
+      ProductComponent,
+      ProductInfoComponent,
+      UpperPipe
+  ],
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    SharedModule
+  ]
+})
+export class ProductModule { }

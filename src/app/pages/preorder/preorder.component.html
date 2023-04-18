@@ -1,0 +1,145 @@
+<div class="spacerMT"></div>
+<div class="serch-div">
+  <h2>
+    <b style="color: #b5d8f7">Step one: </b>
+    <b>Please write main words of your address and choose option below</b>
+  </h2>
+  <p>This will help us found your address on a map</p>
+  <input
+    [(ngModel)]="address"
+    type="text"
+    id="autocomplete"
+    #autocomplete
+    placeholder="Write your address"
+  />
+  <p *ngIf="!isDeliveryZone[0]" style="color: red; padding-top: 5px">
+    You are not in a delivery zone
+  </p>
+</div>
+<div class="map" id="map" #mapElement></div>
+<div class="about-mooney">
+  <h2><b style="color: #b5d8f7">Step two: </b><b>Choose type of payment</b></h2>
+  <div style="width: 100%">
+    <input
+      type="radio"
+      name="typeOfPayment"
+      id="cash"
+      checked="checked"
+    /><label for="cash"
+      ><span>Pay by <b style="color: green"> Cash </b></span></label
+    >
+  </div>
+  <div style="width: 100%">
+    <input type="radio" name="typeOfPayment" id="card" /><label for="card"
+      ><span>Pay by <b style="color: green"> Card </b></span></label
+    >
+  </div>
+  <div style="width: 100%; margin-bottom: 20px">
+    <input type="radio" name="typeOfPayment" id="online" /><label for="online"
+      ><span>Pay <b style="color: green"> on-line </b></span></label
+    >
+  </div>
+  <h2 style="padding-top: 20px">
+    <b style="color: #b5d8f7">Step three: </b><b>Cover products</b>
+  </h2>
+</div>
+<!-- ////////////*************BASCET****************////////////// -->
+
+<div class="basketData">
+  <div class="basketInfo">
+    <div class="basketProducts">
+      <div *ngIf="basket.length == 0" class="null-info-basket">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2Fbasket%2FBasketIsNull.svg?alt=media&token=9d033d23-add9-4cfa-9fc3-801f8c691324"
+        />
+        <h3><b>Basket is empty</b></h3>
+        <h4>
+          <span [routerLink]="'/product/rolls'" (click)="closeDialog()"
+            ><b>Buy something</b></span
+          >
+        </h4>
+      </div>
+      <!-- delivery cost  -->
+      <div class="productOrdered">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2FPaymentDelivery%2Fmn-delivery-img.svg?alt=media&token=825918fd-39e5-4450-819f-a8e864a6cc29"
+          alt="..."
+          width="100px"
+        />
+        <h3>Delivery Cost</h3>
+        <div>
+          <div class="basketCard-count" style="width: 127px"></div>
+          <span>{{ deliveryCost[0] }} $</span>
+          <button class="trashBasket-btn" type="button">
+            <div class="can"></div>
+          </button>
+        </div>
+      </div>
+      <!-- ////////////////////// -->
+      <div class="productOrdered" *ngFor="let product of basket; index as i">
+        <img [src]="product.imagePath" alt="..." width="100px" />
+        <h3>
+          {{ product.name | slice : 0 : 19 }}
+          <span *ngIf="product.name.length > 19">...</span>
+        </h3>
+        <div>
+          <div class="basketCard-count">
+            <button
+              class="basketInfo-btn"
+              type="button"
+              (click)="countProduct(product, false)"
+            >
+              -
+            </button>
+            <span>{{ product.count }}</span>
+            <button
+              class="basketInfo-btn"
+              type="button"
+              (click)="countProduct(product, true)"
+            >
+              +
+            </button>
+          </div>
+          <span>{{ product.count * product.price }} $</span>
+          <button
+            class="trashBasket-btn"
+            type="button"
+            (click)="deletBasketProduct(product)"
+          >
+            <div class="can">
+              <div class="can-head">
+                <div class="Can-h-1"></div>
+                <div class="Can-h-2"></div>
+              </div>
+              <div class="can-body">
+                <div class="Can-b-1"></div>
+                <div class="Can-b-1"></div>
+                <div class="Can-b-1"></div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="basketOrder">
+      <span
+        >Total Bill:<b> {{ basketInfo.total + deliveryCost[0] }}</b> $</span
+      >
+      <button
+        *ngIf="userData.id"
+        type="button"
+        [disabled]="basketInfo.total <= 0 || !isDeliveryZone[0]"
+        (click)="makeOrder()"
+      >
+        Make a order
+      </button>
+      <button *ngIf="!userData.id" type="button" (click)="openLogin()">
+        Please login to make a order
+      </button>
+      <p *ngIf="!isAddress">please write your address</p>
+      <p *ngIf="!isDeliveryZone[0]" style="color: red; padding-top: 5px">
+        You are not in a delivery zone
+      </p>
+    </div>
+  </div>
+</div>

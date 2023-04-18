@@ -1,0 +1,25 @@
+<form class="profile-data" [formGroup]="userForm">
+  <h2>Personal Data</h2>
+  <input
+    class="shortInput"
+    type="text"
+    placeholder="First Name"
+    formControlName="firstName"
+    placeholder="*First Name"
+  />
+  <input
+    class="shortInput"
+    type="text"
+    placeholder="Last Name"
+    formControlName="lastName"
+    placeholder="*Last Name"
+  />
+  <input
+    type="text"
+    placeholder="*Phone number"
+    formControlName="phoneNumber"
+  />
+  <input type="text" placeholder="*Email" formControlName="email" />
+  <button (click)="updateUserInfo()" style="margin-bottom: 20px"><b>Save Info</b></button>
+  <button class="only-phone" (click)="logOut()"><b>Log Out</b></button>
+</form>

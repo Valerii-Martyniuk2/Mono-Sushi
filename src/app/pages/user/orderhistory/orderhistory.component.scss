@@ -1,0 +1,116 @@
+@import "../../../shared/styles/variables";
+.order-history {
+  width: 100%;
+  table {
+    width: 55vw;
+    margin-left: 100px;
+    thead {
+      border-bottom: 3px solid $primary;
+    }
+    tbody {
+      border-bottom: 3px solid $primary;
+      tr {
+        border-bottom: 1px solid silver;
+      }
+    }
+    tr {
+      height: 56px;
+      th {
+        vertical-align: middle;
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            display: block;
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+            background-color: green;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            outline: 2px solid green;
+          }
+          padding-left: 20px;
+          position: relative;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .user-no-orders{
+    width: 55vw;
+    margin-top: 20px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    h3{
+      margin: 20px 0;
+      width: 100%;
+      text-align: center;
+    }
+    h4{
+      color: $primary;
+      cursor: pointer;
+    }
+    h4:hover{
+      color: #4d92c0;
+    }
+  }
+}
+
+///////////////////////////
+@media screen and (max-width: 1300px) {
+  .order-history {
+    width: 100%;
+    table {
+      width: 57vw;
+      margin-left: 30px;
+    }
+    .user-no-orders{
+      width: 57vw;
+      margin-left: 30px;
+    }
+  }
+}
+
+///////////////////////////
+@media screen and (max-width: 1050px) {
+  .order-history {
+    width: 100%;
+    .user-no-orders{
+      width: calc(100vw - 40px);
+      margin-left: 0px;
+      font-size: 16px;
+
+    }
+    table {
+      width: calc(100vw - 40px);
+      margin-left: 0px;
+      thead {
+        font-size: 14px;
+      }
+      tbody {
+        font-size: 10px;
+      }
+      tr {
+        min-height: 50px;
+        th {
+          div {
+            padding-left: 0px;
+            span {
+              width: 7px;
+              height: 7px;
+              margin-right: 3px;
+              outline: 1px solid green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

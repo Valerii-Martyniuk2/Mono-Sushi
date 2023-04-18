@@ -1,0 +1,407 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixins";
+.spacerMT {
+  height: 120px;
+}
+h2 {
+  width: 100%;
+  font-size: 25px;
+  padding: 20px 0 20px 0;
+}
+
+p {
+  font-size: 14px;
+  color: gray;
+  padding-bottom: 5px;
+}
+.serch-div {
+  width: 60%;
+  margin: 0 auto;
+  input {
+    max-width: 500px;
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid silver;
+  }
+}
+.about-mooney {
+  width: 60%;
+  margin: 0 auto;
+  div {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  input {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    margin: 0px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  label {
+    cursor: pointer;
+  }
+}
+
+.map {
+  width: 60%;
+  height: 60vh;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+////////////*******************************************************
+
+@media screen and (max-width: 1400px) {
+}
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 1000px) {
+  h2 {
+    font-size: 20px;
+  }
+  .spacerMT {
+    height: 60px;
+  }
+  .map {
+    width: 90%;
+    height: 50vh;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .serch-div {
+    width: 90%;
+  }
+  .about-mooney {
+    width: 90%;
+    h2 {
+      font-size: 20px;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+}
+/////////////////////////////BASKET////////////*********
+
+.null-info-basket {
+  justify-content: center;
+  text-align: center;
+  h3 {
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    margin-bottom: 20px;
+
+    span {
+      width: 100%;
+      font-size: 20px;
+      color: $primary;
+      cursor: pointer;
+    }
+  }
+  h4 {
+    span:hover {
+      color: #4d92c0;
+    }
+  }
+  img {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.basketData {
+  padding: 10px 0 0 0;
+  z-index: 20;
+  width: 60%;
+  margin: 0 auto;
+}
+.basketInfo {
+  width: 100%;
+  background-color: #fff;
+}
+.basketProducts {
+  width: 100%;
+}
+.basketCard-count {
+  border: 1px solid rgba(128, 128, 128, 0.486);
+  border-radius: 5px;
+}
+.productOrdered {
+  @include dAndaAndj(flex, space-between, center);
+  height: 110px;
+  padding: 0 20px;
+  border-top: 1px solid rgba(128, 128, 128, 0.486);
+  .trashBasket-btn {
+    height: 75px;
+    background-color: transparent;
+  }
+  div {
+    @include dAndaAndj(flex, space-between, center);
+  }
+  img {
+    max-height: 80px;
+  }
+  button {
+    height: 25px;
+  }
+  span {
+    width: 45px;
+    text-align: center;
+    margin: 0 5px;
+  }
+}
+
+.basketInfo-btn {
+  width: 30px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.basketOrder {
+  width: 100%;
+  @include dAndaAndj(flex, space-between, center);
+  background-color: $primary;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 65px;
+  span {
+    margin-left: 20px;
+    font-size: 22px;
+  }
+  button {
+    margin-right: 20px;
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 20px;
+  }
+  p {
+    width: 100%;
+    font-size: 14px;
+    color: red;
+    text-align: right;
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+.basket-order-address {
+  border-top: 1px solid silver;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 10px;
+  position: relative;
+  label {
+    position: absolute;
+    background-color: #fff;
+    color: silver;
+    top: 10px;
+  }
+  span {
+    position: absolute;
+    font-size: 15px;
+    top: 30px;
+    left: 20px;
+  }
+  input {
+    width: 70%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    font-size: 15px;
+    padding-left: 70px;
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid $primary;
+  }
+}
+
+/////////////CAN////////////
+.productOrdered {
+  .can {
+    display: flex;
+    justify-content: center;
+    width: 25px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    .can-head {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+      transition-duration: 0.3s;
+      .Can-h-1 {
+        @include wAndH(11px, 5px);
+        border: 1px solid rgb(163, 163, 163);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        transition-duration: 0.3s;
+      }
+      .Can-h-2 {
+        @include wAndH(25px, 10px);
+        border: 1px solid rgb(163, 163, 163);
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+        transition-duration: 0.3s;
+      }
+    }
+    .can-body {
+      @include dAndaAndj(flex, space-around, center);
+      @include wAndH(25px, 35px);
+      border: 1px solid rgb(163, 163, 163);
+      border-bottom-left-radius: 20%;
+      border-bottom-right-radius: 20%;
+      transition-duration: 0.3s;
+      .Can-b-1 {
+        @include wAndH(1px, 20px);
+        background-color: rgb(163, 163, 163);
+        transition-duration: 0.3s;
+      }
+    }
+  }
+}
+.productOrdered button :hover {
+  .can-head {
+    margin-bottom: 6px;
+    transform: rotate(25deg);
+
+    .Can-h-1 {
+      border-color: $primary;
+    }
+    .Can-h-2 {
+      border-color: $primary;
+    }
+  }
+  .can-body {
+    border-color: $primary;
+    .Can-b-1 {
+      background-color: $primary;
+    }
+  }
+}
+
+//////////////////////////--------------
+@media screen and (max-width: 1000px) {
+  .basketData {
+    width: 100%;
+    padding: 10px 0;
+    margin: none;
+  }
+  .null-info-basket {
+    h3 {
+      font-size: 16px;
+    }
+    h4 {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .basketInfo {
+    padding-top: 10px;
+    width: 100%;
+  }
+  .basketProducts {
+    width: 100%;
+  }
+  ////////////
+  .productOrdered {
+    @include dAndaAndj(flex, space-around, center);
+    flex-wrap: wrap;
+    min-height: 230px;
+    padding: 0 10px;
+    .trashBasket-btn {
+      height: 75px;
+      background-color: transparent;
+    }
+    div {
+      @include dAndaAndj(flex, space-between, center);
+    }
+    img {
+      max-height: 80px;
+    }
+    button {
+      height: 25px;
+    }
+    span {
+      width: 45px;
+      text-align: center;
+      margin: 0 10px;
+    }
+    h3 {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  .basketInfo-btn {
+    width: 30px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  .basketOrder {
+    @include dAndaAndj(flex, space-between, center);
+    background-color: $primary;
+    span {
+      margin-left: 5px;
+      font-size: 16px;
+    }
+    button {
+      max-width: 170px;
+      margin-right: 5px;
+      padding: 0 5px;
+      font-size: 16px;
+    }
+  }
+
+  .basket-order-address {
+    border-top: 1px solid silver;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+    position: relative;
+    label {
+      // width: 100%;
+      position: absolute;
+      background-color: #fff;
+      color: silver;
+      top: 10px;
+    }
+    span {
+      position: absolute;
+      font-size: 15px;
+      top: 30px;
+      left: 20px;
+    }
+    input {
+      width: 70%;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid silver;
+      font-size: 15px;
+      padding-left: 70px;
+    }
+    input:focus {
+      outline: none;
+      border: 2px solid $primary;
+    }
+  }
+}

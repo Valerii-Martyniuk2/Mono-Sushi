@@ -1,0 +1,47 @@
+<form class="order-history">
+  <table>
+    <thead>
+      <tr>
+        <th><b>Date</b></th>
+        <th><b>Address</b></th>
+        <th><b>Total</b></th>
+        <th><b>Status</b></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let order of orders; index as i">
+      <tr>
+        <th>{{ order.date | date }}</th>
+        <th>
+          {{ order.address | slice : 0 : 10
+          }}<span *ngIf="order.address.length > 10">...</span>
+        </th>
+        <th>{{ order.total }} $</th>
+        <th>
+          <div *ngIf="order.info === 'processed'" style="color: orange">
+            <span
+              style="background-color: orange; outline: 2px solid orange"
+            ></span
+            >{{ order.info }}
+          </div>
+          <div *ngIf="order.info !== 'processed'" style="color: green">
+            <span
+              style="background-color: green; outline: 2px solid green"
+            ></span
+            >{{ order.info }}
+          </div>
+        </th>
+      </tr>
+      <tr *ngFor="let product of products[i]">
+        <th colspan="2">{{ product.name }}</th>
+        <th>{{ product.count }}</th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="user-no-orders" *ngIf="!orders">
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/monosushi-85c62.appspot.com/o/images%2Fbasket%2FBasketIsNull.svg?alt=media&token=9d033d23-add9-4cfa-9fc3-801f8c691324"
+    />
+    <h3><b>No one order yet</b></h3>
+    <h4 [routerLink]="'/product/rolls'"><b>Buy something</b></h4>
+  </div>
+</form>
