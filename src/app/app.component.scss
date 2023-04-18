@@ -1,0 +1,52 @@
+// @import "shared/styles/variables";
+
+
+.cvadrat {
+  margin-top: 150px;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  position: relative;
+  border-radius: 10px;
+}
+
+.cvb {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 500px;
+  height: 20px;
+  background-color: blue;
+  position: absolute;
+  top: 0;
+  transition-duration: 0.2s;
+}
+.cv2 {
+  width: 20px;
+  height: 460px;
+  background-color: blue;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  transition-duration: 0.2s;
+  transition-delay: 0.6s;
+}
+.cv3 {
+  width: 20px;
+  height: 460px;
+  background-color: blue;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.2s;
+}
+.cv4 {
+  width: 500px;
+  height: 20px;
+  background-color: blue;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition-delay: 0.4s;
+  transition-duration: 0.2s;
+}
